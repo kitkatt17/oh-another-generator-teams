@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const Manager = require("./lib/Manager.js");
-const Engineer = require("./Engineer.js");
-const Intern = require("./Intern.js");
+const Engineer = require("./lib/engineer.js");
+const Intern = require("./lib/intern.js");
 const path = require("path");
 const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
@@ -13,7 +13,7 @@ const teamArray = [];
 
 function runTeamBuilder() {
     function createTeam() {
-        inquirer.createPromptModule([
+        inquirer.prompt([
             {
                 type: "list",
                 message: "What type of team member would you like to add",
@@ -40,7 +40,7 @@ function runTeamBuilder() {
     // OOP Functions
 
     function addManager() {
-        inquirer.createPromptModule([
+        inquirer.prompt([
             {
                 type: "input",
                 name: "managerName",
@@ -69,7 +69,7 @@ function runTeamBuilder() {
     }
 
     function addEngineer() {
-        inquirer.createPromptModule([
+        inquirer.prompt([
             {
                 type: "input",
                 name: "engineerName",
@@ -98,7 +98,7 @@ function runTeamBuilder() {
     }
 
     function addIntern() {
-        inquirer.createPromptModule([
+        inquirer.prompt([
             {
                 type: "input",
                 name: "internName",
@@ -127,7 +127,7 @@ function runTeamBuilder() {
     }
 
     function buildHTML() {
-        console.log("Team created!");
+        console.log("Team created!!");
         fs.writeFileSync(outputPath, generateTeamHTML(teamArray), "utf-8");
     }
 
