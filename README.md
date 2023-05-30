@@ -48,7 +48,7 @@ Node.js
 
 ## Visual
 
-[Screenshot of generated HTML page](./assets/challenge10-ss.PNG)
+![Screenshot of generated HTML page](./assets/challenge10-ss.PNG)
 
 
 ## Tutorial 
