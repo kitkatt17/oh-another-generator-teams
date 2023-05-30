@@ -1,12 +1,12 @@
 const inquirer = require("inquirer");
-const TeamManager = require("./lib/Manager.js");
-const SoftwareEngineer = require("./Engineer.js");
-const TeamIntern = require("./Intern.js");
+const Manager = require("./lib/Manager.js");
+const Engineer = require("./Engineer.js");
+const Intern = require("./Intern.js");
 const path = require("path");
 const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
-const generateTeam = require("./src/page-template.js");
+const generateTeamHTML = require("./src/page-template.js");
 
 const teamArray = [];
 
@@ -18,15 +18,15 @@ function runTeamBuilder() {
                 type: "list",
                 message: "What type of team member would you like to add",
                 name: "addEmployeePrompt",
-                choices: ["Manager", "Software Engineer", "Intern", "No team members are needed anymore."],
+                choices: ["Manager", "Engineer", "Intern", "No team members are needed anymore."],
             },
         ]).then(function (userInput){
             switch (userInput.addEmployeePrompt) {
                 case "Manager":
                     addManager();
                     break;
-                case "Software Engineer":
-                    addSoftwareEngineer();
+                case "Engineer":
+                    addEngineer();
                     break;
                 case "Intern":
                     addIntern();
@@ -62,28 +62,28 @@ function runTeamBuilder() {
                 message: "Whats the manager's office number?",
             },
         ]).then(answers => {
-            const manager = new TeamManager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+            const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
             teamArray.push(manager);
             createTeam();
         });
     }
 
-    function addSoftwareEngineer() {
-        inquirer.prompt([
+    function addEngineer() {
+        inquirer.createPromptModule([
             {
                 type: "input",
                 name: "engineerName",
-                message: "Whats the software engineer's name?",
+                message: "Whats the engineer's name?",
             },
             {
                 type: "input",
                 name: "engineerId",
-                message: "Whats the software engineer's employee ID number?",
+                message: "Whats the engineer's employee ID number?",
             },
             {
                 type: "input",
                 name: "engineerEmail",
-                message: "Whats the software engineer's email address?",
+                message: "Whats the engineer's email address?",
             },
             {
                 type: "input",
@@ -91,14 +91,14 @@ function runTeamBuilder() {
                 message: "Whats the engineer's Github username?",
             },
         ]).then(answers => {
-            const engineer = new SoftwareEngineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             teamArray.push(engineer);
             createTeam();
         });
     }
 
-    function promptIntern() {
-        inquirer.prompt([
+    function addIntern() {
+        inquirer.createPromptModule([
             {
                 type: "input",
                 name: "internName",
@@ -120,13 +120,13 @@ function runTeamBuilder() {
                 message: "What school does the intern attend?",
             },
         ]).then(answers => {
-            const intern = new TeamIntern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
             teamArray.push(intern);
             createTeam();
         });
     }
 
-    function buildTeam() {
+    function buildHTML() {
         console.log("Team created!");
         fs.writeFileSync(outputPath, generateTeamHTML(teamArray), "utf-8");
     }
@@ -135,6 +135,4 @@ createTeam();
 
 }
 
-
-
-
+runTeamBuilder();
