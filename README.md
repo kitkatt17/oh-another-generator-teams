@@ -56,13 +56,13 @@ Node.js
 
 <h1 align="center">
     <a href="https://drive.google.com/file/d/1z-6OUABez0GBuzrygnQZVvGU3qE91LYy/view" target="_blank">
-     Walkthrough Video
+     Click Here for Walkthrough Video
     </a>
 </h1>
 
 
 <div align="center">
-    <img src="./assets/walkthrough.gif" width="600px">
+    <img src="./assets/walkthroughvid-ss.PNG" width="600px">
     
 </div>
 
