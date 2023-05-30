@@ -53,9 +53,23 @@ Node.js
 
 ## Tutorial 
 
-Walkthrough Video Link:
 
-![Click here](https://drive.google.com/file/d/1z-6OUABez0GBuzrygnQZVvGU3qE91LYy/view)
+<h1 align="center">
+    <a href="https://drive.google.com/file/d/1z-6OUABez0GBuzrygnQZVvGU3qE91LYy/view" target="_blank">
+     Walkthrough Video
+    </a>
+</h1>
+
+
+<div align="center">
+    <img src="./assets/walkthrough.gif" width="600px">
+    
+</div>
+
+
+<!-- Walkthrough Video Link:
+
+![Click here](https://drive.google.com/file/d/1z-6OUABez0GBuzrygnQZVvGU3qE91LYy/view) -->
 
 
 ## Links
