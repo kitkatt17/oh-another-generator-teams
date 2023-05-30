@@ -55,7 +55,7 @@ Node.js
 
 Walkthrough Video Link:
 
-![Click here]()
+![Click here](https://drive.google.com/file/d/1z-6OUABez0GBuzrygnQZVvGU3qE91LYy/view)
 
 
 ## Links
