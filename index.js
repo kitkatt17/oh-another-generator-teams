@@ -135,4 +135,4 @@ createTeam();
 
 }
 
-runTeamBuilder();
+runTeamBuilder( runTeamBuilder.js, addIntern.js, addEngineer.js, addManager.js, buildHTML.js);
